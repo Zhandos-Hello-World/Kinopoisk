@@ -41,7 +41,7 @@ class FavouriteFragment : Fragment() {
         binding.toolbarTitle.setText(R.string.favourite)
         defaultToolbar()
 
-        viewModel.directions.observe(viewLifecycleOwner) {
+        viewModel.setNavigationListener {
             findNavController().navigate(it)
         }
     }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel: ViewModel(), AdapterListener {
     val loading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>(false)
-    val directions = MutableLiveData<NavDirections>()
+    private var navigation: ((navDirections: NavDirections) -> Unit)? = null
 
     fun <T> networkRequest(
         request: suspend () -> T,
@@ -32,7 +32,11 @@ abstract class BaseViewModel: ViewModel(), AdapterListener {
     }
 
     fun navigate(navDirections: NavDirections) {
-        directions.value = navDirections
+        this.navigation?.invoke(navDirections)
+    }
+
+    fun setNavigationListener(navigation: (navDirections: NavDirections) -> Unit) {
+        this.navigation = navigation
     }
 
 

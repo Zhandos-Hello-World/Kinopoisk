@@ -59,7 +59,7 @@ class TopFilmFragment : Fragment(R.layout.fragment_films) {
             viewModel.setupFavourites()
         }
 
-        viewModel.directions.observe(viewLifecycleOwner) {
+        viewModel.setNavigationListener {
             findNavController().navigate(it)
         }
         binding.toolbarTitle.setText(R.string.top)
