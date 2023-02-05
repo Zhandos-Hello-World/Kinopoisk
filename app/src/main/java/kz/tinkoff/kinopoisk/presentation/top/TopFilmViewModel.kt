@@ -7,14 +7,14 @@ import kotlinx.coroutines.launch
 import kz.tinkoff.kinopoisk.data.mapper.FilmTopMapper
 import kz.tinkoff.kinopoisk.data.models.TopFilmsDto
 import kz.tinkoff.kinopoisk.domain.repo.FilmLocalRepository
-import kz.tinkoff.kinopoisk.domain.repo.Baimurat
+import kz.tinkoff.kinopoisk.domain.repo.FilmRepository
 import kz.tinkoff.kinopoisk.presentation.adapter.FilmItem
 import kz.tinkoff.kinopoisk.presentation.base.BaseViewModel
 import kz.tinkoff.kinopoisk.presentation.base.ViewItem
 import kz.tinkoff.kinopoisk.presentation.main.MainFragmentDirections
 
 class TopFilmViewModel(
-    private val repository: Baimurat,
+    private val repository: FilmRepository,
     private val localRepository: FilmLocalRepository,
 ) : BaseViewModel() {
     private var filmsDto: List<TopFilmsDto.TopFilmDto> = mutableListOf()

@@ -8,9 +8,9 @@ import kz.tinkoff.kinopoisk.data.db.DB_NAME
 import kz.tinkoff.kinopoisk.data.db.KinopoiskDao
 import kz.tinkoff.kinopoisk.data.db.KinopoiskDatabase
 import kz.tinkoff.kinopoisk.data.repo.FilmLocalRepositoryImpl
-import kz.tinkoff.kinopoisk.data.repo.BaimuratImpl
+import kz.tinkoff.kinopoisk.data.repo.FilmRepositoryImpl
 import kz.tinkoff.kinopoisk.domain.repo.FilmLocalRepository
-import kz.tinkoff.kinopoisk.domain.repo.Baimurat
+import kz.tinkoff.kinopoisk.domain.repo.FilmRepository
 import kz.tinkoff.kinopoisk.presentation.details.FilmDetailViewModel
 import kz.tinkoff.kinopoisk.presentation.favourites.FavouriteViewModel
 import kz.tinkoff.kinopoisk.presentation.top.TopFilmViewModel
@@ -33,7 +33,7 @@ val appModule = module {
     single<KinopoiskDao> { provideKinopoiskDao(get()) }
 
     single<FilmApi> { get<Retrofit>().create(FilmApi::class.java) }
-    single<Baimurat> { BaimuratImpl(api = get()) }
+    single<FilmRepository> { FilmRepositoryImpl(api = get()) }
     single<FilmLocalRepository> { FilmLocalRepositoryImpl(get()) }
 
     viewModel { TopFilmViewModel(get(), get()) }

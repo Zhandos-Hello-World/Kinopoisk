@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kz.tinkoff.kinopoisk.data.mapper.FilmDetailMapper
 import kz.tinkoff.kinopoisk.domain.model.FilmDetails
-import kz.tinkoff.kinopoisk.domain.repo.Baimurat
+import kz.tinkoff.kinopoisk.domain.repo.FilmRepository
 import kz.tinkoff.kinopoisk.presentation.base.BaseViewModel
 
-class FilmDetailViewModel(private val repository: Baimurat) : BaseViewModel() {
+class FilmDetailViewModel(private val repository: FilmRepository) : BaseViewModel() {
     private val _details = MutableLiveData<FilmDetails>()
     val details: LiveData<FilmDetails> = _details
 
