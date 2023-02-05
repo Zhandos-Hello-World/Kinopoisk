@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/base"
+    android:layout_marginVertical="@dimen/smaller"
+    android:backgroundTint="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/base"
+    app:cardElevation="@dimen/tiny"
+    app:strokeColor="@color/gray"
+    app:strokeWidth="0.1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/film_image"
+            android:layout_width="43dp"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/base"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            tools:src="@mipmap/ic_launcher" />
+
+
+        <LinearLayout
+            android:id="@+id/texts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/film_image"
+            app:layout_constraintEnd_toStartOf="@id/star"
+            app:layout_constraintStart_toEndOf="@id/film_image"
+            app:layout_constraintTop_toTopOf="@id/film_image">
+
+            <TextView
+                android:id="@+id/film_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small"
+                android:ellipsize="end"
+                android:lineHeight="16sp"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/base_text"
+                android:textStyle="bold"
+                tools:targetApi="p"
+                tools:text="Hello Tinkoff" />
+
+            <TextView
+                android:id="@+id/film_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineHeight="16sp"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/thin_text"
+                android:textStyle="bold"
+                tools:text="Bank(2023)" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base"
+            android:src="@drawable/star"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/texts"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/film_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:scaleType="centerCrop"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/film_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/big"
+                    android:layout_marginVertical="@dimen/base"
+                    android:layout_marginBottom="@dimen/small"
+                    android:ellipsize="end"
+                    android:lineHeight="16sp"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/base_text"
+                    android:textStyle="bold"
+                    tools:targetApi="p"
+                    tools:text="Изгой-один: Звёздные войны" />
+
+
+                <TextView
+                    android:id="@+id/film_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/big"
+                    android:ellipsize="end"
+                    android:lineHeight="16sp"
+                    android:scrollHorizontally="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/thin_text"
+                    android:textStyle="normal"
+                    tools:text="Сопротивление собирает отряд для выполнения особой миссии - надо выкрасть чертежи самого совершенного и мертоносного оружия Империи. Не всем суждено вернуться домой, но герои готовы к этому, ведь на кону судьба Галактики" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/big"
+                    android:layout_marginTop="@dimen/base"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lineHeight="16sp"
+                        android:scrollHorizontally="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/thin_text"
+                        android:textStyle="bold"
+                        android:text="@string/genres" />
+
+                    <TextView
+                        android:id="@+id/genres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:layout_marginStart="@dimen/tiny"
+                        android:lineHeight="16sp"
+                        android:scrollHorizontally="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/thin_text"
+                        android:text="Жанры: фантастика, приключения" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/big"
+                    android:layout_marginTop="@dimen/small"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lineHeight="16sp"
+                        android:scrollHorizontally="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/thin_text"
+                        android:textStyle="bold"
+                        android:text="@string/countries" />
+
+                    <TextView
+                        android:id="@+id/countries"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:layout_marginStart="@dimen/tiny"
+                        android:lineHeight="16sp"
+                        android:scrollHorizontally="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/thin_text"
+                        android:text="США" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/base"
+            android:src="@drawable/ic_back" />
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/error_state"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base"
+            android:text="@string/internet_error_info"
+            android:textAlignment="center"
+            android:textColor="@color/blue_sky" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat" />
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_sky"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
